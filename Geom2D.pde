@@ -18,8 +18,8 @@ public static final class GEOM2D {
   
     return false;
   }
-  
-  private static boolean isInTriangle(final Point2D A, final Point2D B, final Point2D C, final Point2D P) {
+   
+  public static boolean isInTriangle(final Point2D A, final Point2D B, final Point2D C, final Point2D P) {
     if (isLeftTurn(A,B,P) == isLeftTurn(B,C,P) &&
         isLeftTurn(A,B,P) == isLeftTurn(C,A,P)) {
       return true;

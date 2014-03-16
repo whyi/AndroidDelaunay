@@ -46,7 +46,7 @@ private int p(final int c) {
   return c-1;
 }
 
-public boolean isIntri(final int triIdx, final Point2D P) {
+public static boolean isIntriangle(final int triIdx, final Point2D P) {
   final int c = triIdx*3;
 
   Point2D A = G[v(c)];
@@ -308,17 +308,16 @@ private void FixMesh(ArrayList l) {
   }
 }
 
-private void addPoint2Ds(int param, float xxx, float yyy)
-{
-  G[nv] = new Point2D(xxx, yyy);
+private void addPoint2Ds(final int param, final float x, final float y) {
+  G[nv] = new Point2D(x,y);
   ++nv;
 
-  int ntHere = nt;
-  for( int triIdx = 0; triIdx < ntHere; ++triIdx ) {
-    if( isIntri(triIdx, G[nv-1]) ) {
-      int A = triIdx*3;
-      int B = A+1;
-      int C = A+2;
+  final int previousNumberOfTriangles = nt;
+  for( int triIdx = 0; triIdx < previousNumberOfTriangles; ++triIdx ) {
+    if (isIntriangle(triIdx, G[nv-1])) {
+      final int A = triIdx*3;
+      final int B = A+1;
+      final int C = A+2;
 
       V[nt*3]   = v(B);
       V[nt*3+1] = v(C);
