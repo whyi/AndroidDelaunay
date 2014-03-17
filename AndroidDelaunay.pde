@@ -8,6 +8,7 @@ private boolean bRenderCC = true;
  */
 void setup() {
   smooth(); 
+  delaunay.initTriangles();
 }
 
 void draw() {

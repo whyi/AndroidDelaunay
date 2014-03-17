@@ -23,16 +23,14 @@ public class Delaunay {
   // Corner-Table
   private int[] C = new int[MAX_NUMBER_OF_CORNERS];
 
-  public Delaunay() {
-    initTriangles();
-  }
+  public Delaunay() {}
 
   // initialize G-table and V-table with the 2 triangles covering the entire display
-  private void initTriangles() {
+  public void initTriangles() {
     G[0] = new Point2D(0, 0);
-    G[1] = new Point2D(0, 500);
-    G[2] = new Point2D(500, 500);
-    G[3] = new Point2D(500, 0);
+    G[1] = new Point2D(0, height);
+    G[2] = new Point2D(width, height);
+    G[3] = new Point2D(width, 0);
   
     nv = 4;
   
