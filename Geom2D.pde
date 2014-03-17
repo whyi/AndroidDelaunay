@@ -41,4 +41,31 @@ public static final class GEOM2D {
     T.scaleBy(t);
     return new Point2D(S.x+T.x,S.y+T.y);
   }
+  
+  public static Point2D midPoint(final Point2D A, final Point2D B) {
+    return new Point2D( (A.x + B.x)/2, (A.y + B.y)/2 );
+  }
+
+  public static Point2D circumCenter(final Point2D A, final Point2D B, final Point2D C) {
+    final Point2D midAB = GEOM2D.midPoint(A,B);
+    Vector2D AB = new Vector2D(A,B);
+    AB.left();
+    AB.normalize();
+    AB.scaleBy(-1);
+  
+    final Point2D midBC = GEOM2D.midPoint(B,C);
+    Vector2D BC = new Vector2D(B,C);
+    BC.left();
+    BC.normalize();
+    BC.scaleBy(-1);  
+  
+    final float fact = 100;
+  
+    Point2D AA = new Point2D( midAB.x+AB.x*fact, midAB.y+AB.y*fact);
+    Point2D BB = new Point2D( midAB.x-AB.x*fact, midAB.y-AB.y*fact);
+    Point2D CC = new Point2D( midBC.x+BC.x*fact, midBC.y+BC.y*fact);
+    Point2D DD = new Point2D( midBC.x-BC.x*fact, midBC.y-BC.y*fact);
+
+    return GEOM2D.intersection(AA, BB, CC, DD);  
+  }
 }
