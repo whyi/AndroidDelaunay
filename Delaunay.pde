@@ -29,10 +29,10 @@ public class Delaunay {
 
   // initialize G-table and V-table with the 2 triangles covering the entire display
   private void initTriangles() {
-    G[0] = new Point2D(0,0);
-    G[1] = new Point2D(0,SCREEN_SIZE);
-    G[2] = new Point2D(SCREEN_SIZE, SCREEN_SIZE);
-    G[3] = new Point2D(SCREEN_SIZE, 0);
+    G[0] = new Point2D(0, 0);
+    G[1] = new Point2D(0, 500);
+    G[2] = new Point2D(500, 500);
+    G[3] = new Point2D(500, 0);
   
     nv = 4;
   
